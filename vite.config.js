@@ -38,7 +38,14 @@ export default defineConfig(({ command }) => {
       emptyOutDir: true,
     },
     plugins: [
-      injectHTML(),
+      injectHTML({
+  partials: {
+    header: 'src/partials/header.html',
+    footer: 'src/partials/footer.html',
+    vitePromo: 'src/partials/vite-promo.html',
+    badges: 'src/partials/badges.html'
+  }
+}),
       FullReload(['./src/**/**.html']),
       SortCss({
         sort: 'mobile-first',
